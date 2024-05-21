@@ -1,6 +1,6 @@
 ---
 description: A quick whoami with links!
-cover: .gitbook/assets/TWITTER BANNER.jpg
+cover: ../.gitbook/assets/TWITTER BANNER.jpg
 coverY: 0
 layout:
   cover:
@@ -39,7 +39,7 @@ Social stuff:
 
 ### Last updated:
 
-Updated notes for [WiFi Pineapple Basics](guides-and-how-tos/wireless-pentesting/wifi-pineapple-basics.md).
+Updated notes for [WiFi Pineapple Basics](../guides-and-how-tos/wireless-pentesting/wifi-pineapple-basics.md).
 
 ***
 

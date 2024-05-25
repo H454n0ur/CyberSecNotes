@@ -172,6 +172,12 @@ Example:
 gobuster vhost -u http://example.com -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
 
+## The Ultimate vhost code
+
+```
+gobuster vhost -u http://example.com/ -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain -t 25 -v | grep "Found"
+```
+
 ## Usage
 
 gobuster -w (wordlist) -u (url)u&#x20;

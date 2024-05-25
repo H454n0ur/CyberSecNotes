@@ -57,6 +57,7 @@
     * [Dirb/Dirbuster](../tools/enumeration/dirb-dirbuster.md)
     * [Enum4Linux](../tools/enumeration/enum4linux.md)
     * [GoBuster](../tools/enumeration/gobuster.md)
+    * [WPscan](tools/enumeration/wpscan.md)
   * [Exploitation Framework](../tools/exploitation-framework/README.md)
     * [Metasploit](../tools/exploitation-framework/metasploit.md)
     * [Sliver](../tools/exploitation-framework/sliver.md)

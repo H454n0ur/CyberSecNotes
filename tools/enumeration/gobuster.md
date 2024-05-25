@@ -9,6 +9,8 @@
 
 ## Installing GoBuster
 
+
+
 #### Using go install
 
 If you have a Go environment ready to go (at least go 1.16), it's as easy as: `go install github.com/OJ/gobuster/v3@latest`
@@ -30,6 +32,27 @@ Compiling gobuster has external dependencies, and so they need to be pulled in f
 * `make all` - builds for all platforms and architectures, and writes the resulting binaries to the build folder.
 * `make clean` - clears out the build folder.
 * `make test` - runs the tests.
+
+
+
+
+
+## Useful Global Flags
+
+There are some useful Global flags that can be used as well. I've included them in the table below. You can review these in the main documentation as well - [here](https://github.com/OJ/gobuster).
+
+\
+
+
+| Flag | Long Flag     | Description                               |
+| ---- | ------------- | ----------------------------------------- |
+| -t   | --threads     | Number of concurrent threads (default 10) |
+| -v   | --verbose     | Verbose output                            |
+| -z   | --no-progress | Don't display progress                    |
+| -q   | --quiet       | Don't print the banner and other noise    |
+| -o   | --output      | Output file to write results to           |
+
+I will typically change the number of threads to 64 to increase the speed of my scans. If you don't change the number of threads, Gobuster can be a little slow.
 
 ## Modes
 
@@ -56,6 +79,12 @@ Global Flags:
       --delay duration    Time each thread waits between requests (e.g. 1500ms)
   -v, --verbose           Verbose output (errors)
   -w, --wordlist string   Path to the wordlist
+```
+
+Example:
+
+```
+gobuster dns -d mydomain.thm -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
 
 #### DIR Mode
@@ -96,6 +125,18 @@ Global Flags:
 -w, --wordlist string   Path to the wordlist
 ```
 
+example: &#x20;
+
+```
+gobuster dir -u http://10.10.10.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+A very common use of Gobuster's "dir" mode is the ability to use it's `-x` or `--extensions` flag to search for the contents of directories that you have already enumerated by providing a list of file extensions.
+
+```
+gobuster dir -u http://10.10.252.123/myfolder -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x.html,.css,.js
+```
+
 #### VHost Mode
 
 ```
@@ -125,9 +166,15 @@ Global Flags:
 -w, --wordlist string   Path to the wordlist
 ```
 
+Example:
+
+```
+gobuster vhost -u http://example.com -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
+```
+
 ## Usage
 
-gobuster -w (wordlist) -u (url)
+gobuster -w (wordlist) -u (url)u&#x20;
 
 Example: `gobuster -w /opt/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt -u https://192.168.1.60`
 

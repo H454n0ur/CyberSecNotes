@@ -58,6 +58,7 @@
     * [Enum4Linux](../tools/enumeration/enum4linux.md)
     * [GoBuster](../tools/enumeration/gobuster.md)
     * [WPscan](tools/enumeration/wpscan.md)
+    * [Nikto](tools/enumeration/nikto.md)
   * [Exploitation Framework](../tools/exploitation-framework/README.md)
     * [Metasploit](../tools/exploitation-framework/metasploit.md)
     * [Sliver](../tools/exploitation-framework/sliver.md)
